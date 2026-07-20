@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store Branches | BSD International | Authorized Samsung Dealer</title>
+  <meta name="description" content="Find a BSD International authorized Samsung store branch near you.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Montserrat:wght@400;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/store-branches.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/updated-logo-juxIspPYCdogM7aw.png" alt="BSD International | Authorized Samsung Dealer logo">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="store-branches.html" class="active">Store Branches</a></li>
+          <li><a href="blog-and-news.html">Blog &amp; News</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <h1>Our Branches</h1>
+    <div class="filters-row">
+      <div class="filter-group" style="flex:1; min-width:240px;">
+        <div class="search-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="bsd-search" placeholder="Search a branch..." oninput="bsdFilter()">
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>Region</label>
+        <select id="bsd-region" onchange="bsdFilter()">
+          <option value="">All Regions</option>
+          <option value="NCR">NCR</option>
+          <option value="Luzon">Luzon</option>
+          <option value="Visayas">Visayas</option>
+          <option value="Mindanao">Mindanao</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="results-bar">
+    <div class="results-count" id="bsd-count"></div>
+  </div>
+
+  <div class="bsd-grid" id="bsd-grid"></div>
+
+  <div class="pagination" id="bsd-pagination">
+    <button class="page-btn" id="btn-prev" onclick="bsdPage(-1)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="pagination-info" id="bsd-page-info"></div>
+    <button class="page-btn" id="btn-next" onclick="bsdPage(1)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>BSD INTERNATIONAL</h5>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="https://www.shopbsd.ph/" target="_blank" rel="noopener">Shop Now</a></li>
+          <li><a href="store-branches.html">Store Branches</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <div class="footer-address">
+          <p class="footer-address-label">Office Address</p>
+          <p>Atlanta Center Building,<br>Annapolis Street, San Juan City,<br>Metro Manila, Philippines</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><img src="assets/images/fb-EhZ9Y7mAYfsaamij.png" alt="Facebook"></a>
+            <a href="#" aria-label="Instagram"><img src="assets/images/ig-ddPZ1fDlwfyAjSzZ.png" alt="Instagram"></a>
+            <a href="#" aria-label="TikTok"><img src="assets/images/tiktok-rJeEbOndDECejV9y.png" alt="TikTok"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> BSD International. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/store-branches.js"></script>
+</body>
+</html>

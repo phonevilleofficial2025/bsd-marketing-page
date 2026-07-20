@@ -1,0 +1,315 @@
+/* ===== About Us page ===== */
+
+.about-hero h1{
+  color: black;
+  align-items: center;
+  font-size:55px;
+  padding: 48px 175px;
+  background-color: #ededed;
+}
+
+@media (max-width: 900px) {
+  .about-hero h1 {
+    font-size: 45px;
+    padding: 40px 24px;
+  }
+}
+
+/* ===== Years / Introduction ===== */
+.years-intro {
+  background: var(--color-nav-bg);
+  padding: 0 175px;
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  gap: 120px;
+}
+
+.years-card {
+  background: var(--color-maroon);
+  color: var(--color-white);
+  padding: 176px 48px 48px;
+}
+
+.years-card h2 {
+  font-size: 60px;
+  margin-bottom: 24px;
+  color: white;
+}
+
+.years-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 340px;
+}
+
+.years-card .divider {
+  display: block;
+  width: 195px;
+  height: 4px;
+  background: var(--color-white);
+  margin-top: 60px;
+}
+
+.years-text {
+  padding-top: 150px;
+}
+
+.years-text h4 {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+.years-text p {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+@media (max-width: 900px) {
+  .years-intro {
+    grid-template-columns: 1fr;
+    padding: 0 24px 64px;
+    gap: 48px;
+  }
+
+  .years-card {
+    padding: 48px 32px;
+  }
+
+  .years-text {
+    padding-top: 0;
+  }
+
+  .years-card h2 {
+    font-size: 45px;
+  }
+}
+
+/* ===== Top Performing Authorized Dealer ===== */
+.about-dealer {
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: 60px 175px;
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  gap: 120px;
+  align-items: center;
+}
+
+.about-dealer h3 {
+  color: var(--color-white);
+  text-transform: uppercase;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.dealer-text p {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+.dealer-text .divider {
+  display: block;
+  width: 195px;
+  height: 4px;
+  background: var(--color-white);
+  margin-top: 100px;
+}
+
+@media (max-width: 900px) {
+  .about-dealer {
+    grid-template-columns: 1fr;
+    padding: 64px 24px;
+    gap: 40px;
+  }
+
+  .about-dealer h3 {
+    font-size: 36px;
+  }
+}
+
+/* ===== Confidence band ===== */
+.confidence-band {
+  background: var(--color-maroon);
+  color: var(--color-white);
+  text-align: center;
+  padding: 48px 0;
+}
+
+.confidence-band h2 {
+  color: var(--color-white);
+  font-size: 36px;
+}
+
+/* ===== Purpose / Ambition ===== */
+.purpose-ambition {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.purpose,
+.ambition {
+  padding: 140px 175px;
+}
+
+.purpose {
+  background: var(--color-nav-bg);
+}
+
+.ambition {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.purpose h4,
+.ambition h4 {
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ambition h4 {
+  color: var(--color-white);
+}
+
+.purpose .divider,
+.ambition .divider {
+  display: block;
+  width: 195px;
+  height: 4px;
+  background: var(--color-heading);
+  margin: 24px 0 56px;
+}
+
+.ambition .divider.divider-white {
+  background: var(--color-white);
+}
+
+.purpose p,
+.ambition p {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+@media (max-width: 900px) {
+  .purpose-ambition {
+    grid-template-columns: 1fr;
+  }
+
+  .purpose,
+  .ambition {
+    padding: 64px 24px;
+  }
+
+  .purpose h4,
+  .ambition h4 {
+    font-size: 32px;
+  }
+}
+
+/* ===== Contact CTA ===== */
+.contact-cta {
+  padding: 96px 0;
+  background: #ededed;
+}
+
+.contact-cta .container {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.contact-cta img {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.eyebrow-maroon {
+  color: var(--color-maroon);
+  font-family: var(--font-buttons);
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.contact-content h2 {
+  margin-bottom: 16px;
+}
+
+.contact-content p {
+  max-width: 440px;
+  margin-bottom: 28px;
+  font-size: 18px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  h1 { font-size: 40px; }
+  h2 { font-size: 36px; }
+  h3 { font-size: 32px; }
+  h4 { font-size: 28px; }
+  h5 { font-size: 28px; }
+
+  .nav-toggle { display: flex; }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-nav-bg);
+    display: none;
+  }
+
+  .main-nav.open { display: block; }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .main-nav li {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 16px 24px;
+  }
+
+  .hero .container,
+  .contact-cta .container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image { order: -1; }
+
+  .trust-grid,
+  .icon-cards,
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .industries {
+    background-color: var(--color-black);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+      url('../assets/images/graphic-store-network.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-size: cover, cover;
+    padding: 80px 0;
+  }
+
+  .industries p {
+    max-width: none;
+    font-size: 24px;
+  }
+}

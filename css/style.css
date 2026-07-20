@@ -1,0 +1,555 @@
+/* ===== Design tokens ===== */
+:root {
+  --color-maroon: #991700;
+  --color-black: #1c1c1c;
+  --color-nav-bg: #ededed;
+  --color-heading: #1a1a1a;
+  --color-white: #ffffff;
+
+  --font-primary: 'DM Sans', sans-serif;
+  --font-secondary: 'Montserrat', sans-serif;
+  --font-buttons: 'Poppins', sans-serif;
+
+  --radius-pill: 100px;
+  --radius-card: 12px;
+  --radius-button: 24px;
+
+  --max-width: 1224px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-secondary);
+  color: var(--color-heading);
+  line-height: 1.5;
+  background: var(--color-white);
+}
+
+img { max-width: 100%; display: block; }
+
+a { text-decoration: none; color: inherit; }
+
+ul { list-style: none; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  line-height: 1.25;
+  color: var(--color-heading);
+}
+
+h1 { font-size: 64px; }
+h2 { font-size: 56px; }
+h3 { font-size: 48px; }
+h4 { font-size: 40px; }
+h5 { font-size: 32px; }
+h6 { font-size: 24px; }
+
+p { font-size: 16px; }
+.body-large { font-size: 18px; }
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-buttons);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-white);
+  padding: 14px 32px;
+  border-radius: var(--radius-button);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.btn:hover { opacity: 0.85; }
+.btn-maroon { background: var(--color-maroon); }
+.btn-black { background: var(--color-maroon); }
+
+/* ===== Header ===== */
+.site-header {
+  background: var(--color-nav-bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.logo img { height: 48px; width: auto; }
+
+.main-nav ul {
+  display: flex;
+  gap: 32px;
+}
+
+.main-nav a {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding-bottom: 4px;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--color-maroon);
+  border-bottom: 2px solid var(--color-maroon);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-toggle span {
+  width: 26px;
+  height: 2px;
+  background: var(--color-black);
+}
+
+/* ===== Hero ===== */
+.hero {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.hero .container {
+  padding-top: 96px;
+  padding-bottom: 96px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero h1 {
+  color: var(--color-white);
+  margin-bottom: 16px;
+}
+
+.hero-tagline {
+  font-size: 18px;
+  opacity: 0.85;
+  margin-bottom: 32px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+/* ===== Stat band ===== */
+.stat-band {
+  background: var(--color-maroon);
+  color: var(--color-white);
+  text-align: center;
+  padding: 56px 0;
+}
+
+.stat-band .eyebrow {
+  font-family: var(--font-buttons);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.stat-band .stat-number {
+  display: block;
+  font-family: var(--font-primary);
+  font-size: 72px;
+  font-weight: bolder;
+}
+
+.stat-band .stat-label {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* ===== Tagline band ===== */
+.tagline-band {
+  background: var(--color-black);
+  color: var(--color-white);
+  text-align: center;
+  padding: 24px 0;
+}
+
+/* ===== Business partner intro ===== */
+.partner-intro {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.partner-intro .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.partner-icon {
+  width: 120px;
+  height: 120px;
+}
+
+.partner-intro h2 {
+  margin-bottom: 20px;
+}
+
+.partner-intro p {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ===== Why banner (photo bg) ===== */
+.why-banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url('../assets/images/photo-partner-handshake-banner.png') center/cover no-repeat;
+  padding: 160px 0;
+  text-align: center;
+}
+
+.why-banner h3 {
+  color: var(--color-white);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.why-banner .highlight {
+  color: var(--color-maroon);
+}
+
+/* ===== Trust photos ===== */
+.trust-photos {
+  background: var(--color-maroon);
+  padding: 64px 0;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.trust-card {
+  text-align: center;
+}
+
+.trust-card img {
+  border-radius: var(--radius-card);
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.trust-card span {
+  display: inline-block;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+}
+
+/*===== Three key points ===== */
+.threekey {
+  background: var(--color-heading);
+  padding: 80px 0;
+  text-align: center;
+}
+
+/* ===== Blog & News ===== */
+.blog {
+  background: var(--color-nav-bg);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.blog h3 {
+  margin-bottom: 48px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.blog-card {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  text-align: left;
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-card-body {
+  padding: 24px;
+}
+
+.blog-card-body h6 {
+  margin-bottom: 20px;
+}
+
+/* ===== Why icons ===== */
+.why-icons {
+  background: var(--color-header);
+  text-align: center;
+  color: var(--color-white);
+}
+
+.icon-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.icon-card img {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 16px;
+}
+
+.icon-card span {
+  font-family: var(--font-buttons);
+  font-weight: 500;
+  font-size: 18px;
+}
+
+/* ===== Industries ===== */
+.industries {
+  background: var(--color-black) url('../assets/images/graphic-store-network.png') no-repeat right center;
+  background-size: auto 120%;
+  color: var(--color-white);
+  padding: 250px 0;
+}
+
+.industries p {
+  font-size: 30px;
+  max-width: 650px;
+}
+
+/* ===== Contact CTA ===== */
+.contact-cta {
+  padding: 96px 0;
+}
+
+.contact-cta .container {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.contact-cta img {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.eyebrow-maroon {
+  color: var(--color-maroon);
+  font-family: var(--font-buttons);
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.contact-content h2 {
+  margin-bottom: 16px;
+}
+
+.contact-content p {
+  max-width: 440px;
+  margin-bottom: 28px;
+  font-size: 18px;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: 64px 0 32px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-grid h5 {
+  color: var(--color-white);
+  font-size: 24px;
+}
+
+.footer-address-label {
+  font-family: var(--font-buttons);
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a:hover { color: var(--color-maroon); }
+
+.footer-social {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.footer-social img {
+  width: 32px;
+  height: 32px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 24px;
+  font-size: 14px;
+  opacity: 0.7;
+  text-align: center;
+}
+
+/* ===== Scroll reveal animation ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.reveal-left { transform: translateX(-48px); }
+.reveal.reveal-right { transform: translateX(48px); }
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.trust-card.reveal:nth-child(1) { transition-delay: 0s; }
+.trust-card.reveal:nth-child(2) { transition-delay: 0.1s; }
+.trust-card.reveal:nth-child(3) { transition-delay: 0.2s; }
+.trust-card.reveal:nth-child(4) { transition-delay: 0.3s; }
+
+.blog-card.reveal:nth-child(1) { transition-delay: 0s; }
+.blog-card.reveal:nth-child(2) { transition-delay: 0.15s; }
+.blog-card.reveal:nth-child(3) { transition-delay: 0.3s; }
+
+.icon-card.reveal:nth-child(1) { transition-delay: 0s; }
+.icon-card.reveal:nth-child(2) { transition-delay: 0.15s; }
+.icon-card.reveal:nth-child(3) { transition-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  h1 { font-size: 40px; }
+  h2 { font-size: 36px; }
+  h3 { font-size: 32px; }
+  h4 { font-size: 28px; }
+  h5 { font-size: 28px; }
+
+  .nav-toggle { display: flex; }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-nav-bg);
+    display: none;
+  }
+
+  .main-nav.open { display: block; }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .main-nav li {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 16px 24px;
+  }
+
+  .hero .container,
+  .contact-cta .container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image { order: -1; }
+
+  .trust-grid,
+  .icon-cards,
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .industries {
+    background-color: var(--color-black);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+      url('../assets/images/graphic-store-network.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-size: cover, cover;
+    padding: 80px 0;
+  }
+
+  .industries p {
+    max-width: none;
+    font-size: 24px;
+  }
+}

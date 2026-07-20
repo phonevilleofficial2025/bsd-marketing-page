@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog &amp; News | BSD International | Authorized Samsung Dealer</title>
+  <meta name="description" content="Read the latest blog posts and news from BSD International, authorized Samsung dealer in the Philippines.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400&family=Montserrat:wght@400;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/blog-and-news.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/updated-logo-juxIspPYCdogM7aw.png" alt="BSD International | Authorized Samsung Dealer logo">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="store-branches.html">Store Branches</a></li>
+          <li><a href="blog-and-news.html" class="active">Blog &amp; News</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="blog-hero">
+    <h1 class="reveal">Everything Samsung, <span class="highlight">all in one place.</span></h1>
+    <p class="reveal">Buying guides, product launches, store promotions, and company news — pick a topic below or browse everything at once.</p>
+  </section>
+
+  <section class="topic-tabs reveal">
+    <button class="tab tab-active" data-filter="all">All</button>
+    <button class="tab tab-1" data-filter="buying-guides">Buying Guides</button>
+    <button class="tab tab-2" data-filter="product-news">Product News</button>
+    <button class="tab tab-3" data-filter="promotions">Promotions</button>
+    <button class="tab tab-4" data-filter="store-updates">Store Updates</button>
+  </section>
+
+  <section class="featured-article">
+    <div class="featured-card reveal" data-category="buying-guides">
+      <div class="featured-image">
+        <span class="featured-badge">Buying Guide</span>
+      </div>
+      <div class="featured-content">
+        <p class="featured-eyebrow">Editor's Pick</p>
+        <h2>The Premium Buyer's Guide: Securing Genuine Samsung Devices in the Philippines</h2>
+        <p class="featured-desc">Where you buy is just as important as what you buy. Here's why BSD's authorized network beats gray-market imports on warranty, service, and peace of mind.</p>
+        <div class="featured-meta">
+          <span>BSD Editorial</span>
+          <span class="dot">&bull;</span>
+          <span>8 Min Read</span>
+          <span class="dot">&bull;</span>
+          <span>Buying Guides</span>
+        </div>
+        <a href="blog/buying-guides/premium-buyers-guide.html" class="featured-link">Read the Guide &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="latest-posts">
+    <h2 class="reveal">Latest posts</h2>
+    <div class="posts-grid" id="postsGrid"></div>
+    <div class="load-more-wrap">
+      <button type="button" class="btn btn-black" id="loadMoreBtn" onclick="loadMorePosts()">Load More</button>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>BSD INTERNATIONAL</h5>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="https://www.shopbsd.ph/" target="_blank" rel="noopener">Shop Now</a></li>
+          <li><a href="store-branches.html">Store Branches</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <div class="footer-address">
+          <p class="footer-address-label">Office Address</p>
+          <p>Atlanta Center Building,<br>Annapolis Street, San Juan City,<br>Metro Manila, Philippines</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><img src="assets/images/fb-EhZ9Y7mAYfsaamij.png" alt="Facebook"></a>
+            <a href="#" aria-label="Instagram"><img src="assets/images/ig-ddPZ1fDlwfyAjSzZ.png" alt="Instagram"></a>
+            <a href="#" aria-label="TikTok"><img src="assets/images/tiktok-rJeEbOndDECejV9y.png" alt="TikTok"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> BSD International. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/posts-data.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/blog-and-news.js"></script>
+</body>
+</html>

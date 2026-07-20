@@ -1,0 +1,151 @@
+/* ===== Contact page ===== */
+
+.contact-section {
+  background: var(--color-nav-bg);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 60px;
+}
+
+.contact-form-panel {
+  background: var(--color-white);
+  padding: 64px 96px;
+}
+
+.contact-intro {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.contact-intro .get-in-touch {
+  color: var(--color-maroon);
+  font-family: var(--font-primary);
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.contact-intro h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.contact-intro p {
+  color: #555;
+  max-width: 480px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 15px;
+  color: var(--color-heading);
+  margin-bottom: 8px;
+}
+
+.form-group .required {
+  color: var(--color-maroon);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: var(--color-nav-bg);
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-family: var(--font-secondary);
+  font-size: 15px;
+  color: var(--color-heading);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+}
+
+.contact-form .btn {
+  margin-top: 8px;
+  border: none;
+}
+
+.contact-info-panel {
+  padding: 64px 64px 64px 48px;
+}
+
+.contact-info-panel h2 {
+  font-size: 36px;
+  margin-top: 48px;
+  margin-bottom: 16px;
+}
+
+.contact-info-panel h2:first-child {
+  margin-top: 0;
+}
+
+.contact-info-panel p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-heading);
+  margin-bottom: 12px;
+}
+
+.hours-line {
+  margin-bottom: 4px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.social-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--color-maroon);
+  color: var(--color-maroon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-circle svg {
+  width: 22px;
+  height: 22px;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-panel {
+    padding: 48px 24px;
+  }
+
+  .contact-info-panel {
+    padding: 48px 24px;
+  }
+
+  .contact-intro h1 {
+    font-size: 32px;
+  }
+}
