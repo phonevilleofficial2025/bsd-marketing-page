@@ -46,7 +46,7 @@
           <p>Do you have any questions, comments or concerns? Fill out the form below and we'll get back to you as soon as possible.</p>
         </div>
 
-        <form class="contact-form">
+        <form class="contact-form" id="contactForm">
           <div class="form-group">
             <label for="firstName">First Name<span class="required">*</span></label>
             <input type="text" id="firstName" name="firstName" placeholder="Your name" required>
@@ -63,7 +63,8 @@
             <label for="message">Message<span class="required">*</span></label>
             <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
           </div>
-          <button type="submit" class="btn btn-maroon">Submit</button>
+          <button type="submit" class="btn btn-maroon" id="contactSubmitBtn">Submit</button>
+          <p id="formStatus" class="form-status"></p>
         </form>
       </div>
 
@@ -129,5 +130,6 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script src="js/contact.js"></script>
 </body>
 </html>

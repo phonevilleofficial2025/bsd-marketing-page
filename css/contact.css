@@ -85,6 +85,24 @@
   border: none;
 }
 
+.contact-form .btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-status {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.form-status-success {
+  color: #1a7a3c;
+}
+
+.form-status-error {
+  color: var(--color-maroon);
+}
+
 .contact-info-panel {
   padding: 64px 64px 64px 48px;
 }
