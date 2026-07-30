@@ -1,5 +1,5 @@
 // Swap this for the Production URL once testing against the Test URL works.
-var CONTACT_WEBHOOK_URL = 'https://n8n.bsd.international/webhook-test/contact-form';
+var CONTACT_WEBHOOK_URL = 'https://n8n.bsd.international/webhook/contact-form';
 
 var contactForm = document.getElementById('contactForm');
 var formStatus = document.getElementById('formStatus');
