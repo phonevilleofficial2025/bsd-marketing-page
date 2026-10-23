@@ -37,6 +37,38 @@ var POSTS = [
 var PAGE_SIZE = 6;
 var currentFilter = 'all';
 var visibleCount = PAGE_SIZE;
+var SANITY_POSTS = [];
+
+function sanityPostToCard(doc) {
+  var meta = CATEGORY_LABELS[doc.category] || { label: doc.category, badge: doc.category };
+  var imageUrl = doc.mainImage ? sanityImageUrl(doc.mainImage, 800) : null;
+
+  return {
+    title: doc.title,
+    excerpt: doc.excerpt || '',
+    category: doc.category,
+    label: meta.label,
+    badge: meta.badge,
+    author: doc.authorName || 'BSD Editorial',
+    readTime: doc.readTime || '',
+    image: imageUrl,
+    gradient: 'post-gradient-' + ((doc.title.length % 6) + 1),
+    url: 'blog/post.html?slug=' + encodeURIComponent(doc.slug)
+  };
+}
+
+function loadSanityPosts() {
+  var query = '*[_type == "post" && defined(slug.current) && defined(publishedAt)] ' +
+    '| order(publishedAt desc){title, "slug": slug.current, excerpt, category, mainImage, ' +
+    '"authorName": author->name, readTime, publishedAt}';
+
+  sanityQuery(query).then(function (docs) {
+    SANITY_POSTS = (docs || []).map(sanityPostToCard);
+    renderVisiblePosts();
+  }).catch(function (err) {
+    console.error('Failed to load posts from Sanity', err);
+  });
+}
 
 function buildPostCardHTML(post) {
   var imageClass = post.image ? '' : ' ' + post.gradient;
@@ -63,9 +95,10 @@ function buildPostCardHTML(post) {
 }
 
 function getFilteredPosts() {
+  var allPosts = SANITY_POSTS.concat(POSTS);
   return currentFilter === 'all'
-    ? POSTS
-    : POSTS.filter(function (post) { return post.category === currentFilter; });
+    ? allPosts
+    : allPosts.filter(function (post) { return post.category === currentFilter; });
 }
 
 function renderVisiblePosts() {
@@ -103,3 +136,4 @@ function loadMorePosts() {
 }
 
 renderVisiblePosts();
+loadSanityPosts();
