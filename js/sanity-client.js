@@ -9,7 +9,29 @@ var CATEGORY_LABELS = {
   'store-updates': { label: 'Store Updates', badge: 'Store Update' }
 };
 
+function isPreviewActive() {
+  return document.cookie.split('; ').some(function (c) {
+    return c.indexOf('bsd_preview_active=1') === 0;
+  });
+}
+
 function sanityQuery(query, params) {
+  if (isPreviewActive()) {
+    return fetch('/api/preview/query', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: query, params: params || {} })
+    }).then(function (res) {
+      if (!res.ok) {
+        throw new Error('Preview query failed with status ' + res.status);
+      }
+      return res.json();
+    }).then(function (data) {
+      return data.result;
+    });
+  }
+
   var base = 'https://' + SANITY_PROJECT_ID + '.apicdn.sanity.io/v' + SANITY_API_VERSION +
     '/data/query/' + SANITY_DATASET;
   var url = base + '?query=' + encodeURIComponent(query);

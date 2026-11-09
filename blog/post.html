@@ -83,5 +83,22 @@
   <script src="../js/sanity-client.js"></script>
   <script src="../js/script.js"></script>
   <script src="../js/blog-post-sanity.js"></script>
+
+  <script>
+    (function () {
+      if (document.cookie.indexOf('bsd_preview_active=1') === -1) return;
+
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://esm.sh/@sanity/visual-editing-standalone@2.0.3/styles.css';
+      document.head.appendChild(link);
+
+      import('https://esm.sh/@sanity/visual-editing-standalone@2.0.3').then(function (mod) {
+        mod.enableVisualEditing();
+      }).catch(function (err) {
+        console.error('Failed to load visual editing overlay', err);
+      });
+    })();
+  </script>
 </body>
 </html>

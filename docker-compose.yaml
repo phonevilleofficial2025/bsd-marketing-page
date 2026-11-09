@@ -9,11 +9,44 @@ services:
       - traefik-public
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.bsd-marketing-site.rule=Host(`marketing.bsd.international`)"
+
+      # --- Main site: bsd.international (no www) ---
+      - "traefik.http.routers.bsd-marketing-site.rule=Host(`bsd.international`)"
       - "traefik.http.routers.bsd-marketing-site.entrypoints=https"
       - "traefik.http.routers.bsd-marketing-site.tls=true"
       - "traefik.http.routers.bsd-marketing-site.tls.certresolver=le"
       - "traefik.http.services.bsd-marketing-site.loadbalancer.server.port=80"
+
+      # --- www redirect: www.bsd.international -> bsd.international ---
+      - "traefik.http.middlewares.bsd-www-redirect.redirectregex.regex=^https://www\\.bsd\\.international/(.*)"
+      - "traefik.http.middlewares.bsd-www-redirect.redirectregex.replacement=https://bsd.international/$${1}"
+      - "traefik.http.middlewares.bsd-www-redirect.redirectregex.permanent=true"
+
+      - "traefik.http.routers.bsd-marketing-site-www.rule=Host(`www.bsd.international`)"
+      - "traefik.http.routers.bsd-marketing-site-www.entrypoints=https"
+      - "traefik.http.routers.bsd-marketing-site-www.tls=true"
+      - "traefik.http.routers.bsd-marketing-site-www.tls.certresolver=le"
+      - "traefik.http.routers.bsd-marketing-site-www.middlewares=bsd-www-redirect"
+      - "traefik.http.routers.bsd-marketing-site-www.service=bsd-marketing-site"
+
+  bsd-preview-server:
+    build: ./preview-server
+    container_name: bsd-preview-server
+    restart: unless-stopped
+    env_file:
+      - ./preview-server/.env
+    networks:
+      - traefik-public
+    labels:
+      - "traefik.enable=true"
+
+      # --- Draft preview API: bsd.international/api/preview/* ---
+      - "traefik.http.routers.bsd-preview-server.rule=Host(`bsd.international`) && PathPrefix(`/api/preview`)"
+      - "traefik.http.routers.bsd-preview-server.entrypoints=https"
+      - "traefik.http.routers.bsd-preview-server.tls=true"
+      - "traefik.http.routers.bsd-preview-server.tls.certresolver=le"
+      - "traefik.http.routers.bsd-preview-server.priority=10"
+      - "traefik.http.services.bsd-preview-server.loadbalancer.server.port=4000"
 
 networks:
   traefik-public:
