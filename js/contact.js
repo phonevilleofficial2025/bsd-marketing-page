@@ -41,7 +41,7 @@ if (contactForm) {
       })
       .finally(function () {
         submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
+        submitBtn.textContent = originalText; 
       });
   });
 }
