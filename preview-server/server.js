@@ -95,6 +95,11 @@ app.get('/api/preview/enable', async (req, res) => {
       // (sanity.io / *.sanity.studio / localhost:3333), so the cookie must
       // be SameSite=None to be stored and sent at all in that context.
       sameSite: 'none',
+      // Chrome silently drops SameSite=None cookies set from a third-party
+      // (cross-site iframe) context unless they opt into partitioned
+      // storage (CHIPS). Without this, the cookie appears in the Set-Cookie
+      // response header but is never actually persisted.
+      partitioned: true,
       path: '/',
       maxAge: MAX_AGE_MS,
     };
