@@ -143,6 +143,40 @@ app.post('/api/preview/query', async (req, res) => {
   }
 });
 
+// Server-Sent Events relay of Sanity's Live Content API, so the browser
+// can learn a draft changed and re-fetch, without ever holding the
+// Sanity API token itself. Sends a bare "change" signal only — the
+// client re-runs its own preview query on receipt.
+app.get('/api/preview/live', (req, res) => {
+  if (!verifySession(req.cookies[COOKIE_NAME])) {
+    res.status(401).end();
+    return;
+  }
+
+  res.writeHead(200, {
+    'Content-Type': 'text/event-stream',
+    'Cache-Control': 'no-cache, no-transform',
+    Connection: 'keep-alive',
+  });
+  res.write('\n');
+
+  const subscription = client.live.events({ includeDrafts: true }).subscribe({
+    next(event) {
+      if (event.type === 'message' || event.type === 'restart' || event.type === 'reconnect') {
+        res.write('data: change\n\n');
+      }
+    },
+    error(err) {
+      console.error('Live events error:', err);
+      res.end();
+    },
+  });
+
+  req.on('close', () => {
+    subscription.unsubscribe();
+  });
+});
+
 app.get('/api/preview/health', (req, res) => res.json({ ok: true }));
 
 app.listen(PORT, () => {
