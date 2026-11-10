@@ -91,7 +91,10 @@ app.get('/api/preview/enable', async (req, res) => {
     const cookieOpts = {
       httpOnly: true,
       secure: true,
-      sameSite: 'lax',
+      // The preview iframe is cross-site relative to Studio's own origin
+      // (sanity.io / *.sanity.studio / localhost:3333), so the cookie must
+      // be SameSite=None to be stored and sent at all in that context.
+      sameSite: 'none',
       path: '/',
       maxAge: MAX_AGE_MS,
     };
